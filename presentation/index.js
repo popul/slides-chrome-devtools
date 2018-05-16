@@ -3,6 +3,7 @@ import React from "react";
 
 // Import Spectacle Core tags
 import {
+  Appear,
   BlockQuote,
   Cite,
   Deck,
@@ -13,7 +14,11 @@ import {
   Slide,
   Text,
   Image,
-  Markdown
+  Markdown,
+  Table,
+  TableBody,
+  TableRow,
+  TableItem
 } from "spectacle";
 
 // Import theme
@@ -25,7 +30,39 @@ import "normalize.css";
 import "../assets/styles.css";
 import "../assets/HelvNeue35_W1G.woff";
 import "../assets/HelvNeue45_W1G.woff";
+
+// Import image preloader util
+import preloader from "spectacle/lib/utils/preloader";
+
 import bgDevtools from "../assets/bgdevtools.png";
+
+import banane from "../assets/banane.jpg";
+import charpentier from "../assets/charpentier.jpg";
+
+import devweb from "../assets/devweb.jpg";
+import mac from "../assets/mac.png";
+import ie6 from "../assets/ie6.png";
+import devtools from "../assets/devtools.jpeg";
+
+import good from "../assets/good.jpg";
+import notgood from "../assets/notgood.jpg";
+
+import wondeful from "../assets/wonderful.gif";
+import couteau from "../assets/couteausuisse.png";
+
+preloader({
+  bgDevtools,
+  banane,
+  charpentier,
+  devweb,
+  mac,
+  ie6,
+  devtools,
+  good,
+  notgood,
+  wondeful,
+  couteau
+});
 
 const theme = createTheme(
   {
@@ -55,8 +92,128 @@ export default class Presentation extends React.Component {
             Devtools yourself
           </Heading>
           <Text margin="10px 0 0" textColor="tertiary" textSize="2em" bold>
-            Paul Musso @paulmusso0
+            Paul Musso @paulmuss0
           </Text>
+        </Slide>
+        <Slide>
+          <Table>
+            <TableBody>
+              <TableRow>
+                <TableItem>
+                  <Appear>
+                    <Image src={charpentier} />
+                  </Appear>
+                </TableItem>
+                <TableItem>
+                  <Appear>
+                    <Text textSize="5em">+</Text>
+                  </Appear>
+                </TableItem>
+                <TableItem>
+                  <Appear>
+                    <Image src={banane} />
+                  </Appear>
+                </TableItem>
+              </TableRow>
+            </TableBody>
+          </Table>
+          <Appear>
+            <Image src={notgood} />
+          </Appear>
+        </Slide>
+        <Slide>
+          <Table>
+            <TableBody>
+              <TableRow>
+                <TableItem>
+                  <Appear>
+                    <Image src={devweb} />
+                  </Appear>
+                </TableItem>
+                <TableItem>
+                  <Appear>
+                    <Text textSize="5em">+</Text>
+                  </Appear>
+                </TableItem>
+                <TableItem>
+                  <Appear>
+                    <Image src={mac} />
+                  </Appear>
+                </TableItem>
+              </TableRow>
+            </TableBody>
+          </Table>
+          <Appear>
+            <Image src={good} />
+          </Appear>
+        </Slide>
+        <Slide>
+          <Table>
+            <TableBody>
+              <TableRow>
+                <TableItem>
+                  <Appear>
+                    <Image src={devweb} />
+                  </Appear>
+                </TableItem>
+                <TableItem>
+                  <Appear>
+                    <Text textSize="5em">+</Text>
+                  </Appear>
+                </TableItem>
+                <TableItem>
+                  <Appear>
+                    <Image src={ie6} />
+                  </Appear>
+                </TableItem>
+              </TableRow>
+            </TableBody>
+          </Table>
+          <Appear>
+            <Image src={notgood} />
+          </Appear>
+        </Slide>
+        <Slide>
+          <Table>
+            <TableBody>
+              <TableRow>
+                <TableItem>
+                  <Appear>
+                    <Image src={devweb} />
+                  </Appear>
+                </TableItem>
+                <TableItem>
+                  <Appear>
+                    <Text textSize="2em">+</Text>
+                  </Appear>
+                </TableItem>
+                <TableItem>
+                  <Appear>
+                    <Image src={mac} />
+                  </Appear>
+                </TableItem>
+                <TableItem>
+                  <Appear>
+                    <Text textSize="2em">+</Text>
+                  </Appear>
+                </TableItem>
+                <TableItem>
+                  <Appear>
+                    <Image src={devtools} />
+                  </Appear>
+                </TableItem>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </Slide>
+        <Slide bgImage={wondeful} />
+        <Slide bgColor="#ff6666">
+          <Heading size={1} caps fit textColor="primary">
+            Les bons outils font
+          </Heading>
+          <Heading size={1} caps fit textColor="secondary">
+            les bons artisans
+          </Heading>
         </Slide>
         <Slide bgColor="#FFD800">
           <Heading size={1} caps fit textColor="primary">
@@ -66,28 +223,119 @@ export default class Presentation extends React.Component {
             devtools ?
           </Heading>
         </Slide>
+        <Slide bgImage={couteau} />
         <Slide bgColor="#d13075">
           <Heading size={1} caps fit textColor="primary">
-            Pourquoi j'utiliserai les
+            Comment les
           </Heading>
           <Heading size={1} caps fit textColor="tertiary">
-            devtools ?
+            devtools
+          </Heading>
+          <Heading size={1} caps fit textColor="primary">
+            peuvent m'aider ?
+          </Heading>
+        </Slide>
+        <Slide bgColor="#008080">
+          <Heading size={1} caps fit textColor="primary">
+            Pour debugger
           </Heading>
         </Slide>
         <Slide>
+          <Heading size={2} textColor="tertiary">
+            IHM des Devtools
+          </Heading>
+          <Markdown>
+            {`
+- Packagée et livrée dans Chromium
+- **repository:**  https://github.com/ChromeDevTools/devtools-frontend
+`}
+          </Markdown>
+        </Slide>
+        <Slide>
+          <Heading size={2} textColor="tertiary">
+            IHM des Devtools
+          </Heading>
+          <Markdown>
+            {`
+- Communique avec Chromium ou Node.JS grâce au protocol CDP
+- **repository du CDP:**  https://github.com/ChromeDevTools/devtools-protocol
+`}
+          </Markdown>
+        </Slide>
+
+        <Slide bgColor="#d3ffce">
           <Heading size={1} caps fit textColor="secondary">
-            Pour debugger pardi !
+            Pour optimiser
+          </Heading>
+        </Slide>
+        <Slide bgColor="#d3ffce">
+          <Heading size={1} caps fit textColor="secondary">
+            Comment optimiser le code
+          </Heading>
+          <Heading size={1} caps fit textColor="secondary">
+            du code ?
           </Heading>
         </Slide>
         <Slide>
-          <Heading size={1} caps fit textColor="secondary">
-            Pour optimiser voyons !
+          <Heading size={1} fit textColor="secondary">
+            Identifier un scénario reproductible mettant
+          </Heading>
+          <Heading size={1} fit textColor="secondary">
+            en évidence les mauvaises performances
           </Heading>
         </Slide>
         <Slide>
-          <Heading size={1} caps fit textColor="secondary">
-            Pour intégrer mon enfant !
+          <Heading size={1} fit textColor="secondary">
+            Identifier les fonctions les plus lentes en mesurant
           </Heading>
+          <Heading size={1} fit textColor="secondary">
+          le temps d'exécution de chacune d'elles
+          </Heading>
+        </Slide>
+        <Slide>
+          <Heading size={1} fit textColor="secondary">
+          Réduire le temps d'exécution en limitant
+          </Heading>
+          <Heading size={1} fit textColor="secondary">
+          et/ou replaçant les instructions couteuses
+          </Heading>
+        </Slide>
+        <Slide bgColor="#0099cc">
+          <Heading size={1} caps fit textColor="primary">
+            Optimiser du code
+          </Heading>
+          <Heading size={1} caps fit textColor="primary">
+            c'est souvent un trade-off entre:
+          </Heading>
+          <List textColor="primary">
+            <ListItem>lisibilité/maintenabilité</ListItem>
+            <ListItem>et performance</ListItem>
+          </List>
+        </Slide>
+        <Slide bgColor="#ffa500">
+          <Heading size={1} caps fit textColor="primary">
+            Et pourquoi pas pour intégrer !
+          </Heading>
+        </Slide>
+        <Slide>
+          <Heading size={1} fit textColor="secondary">
+            Avec Puppeteer
+          </Heading>
+        </Slide>
+        <Slide>
+          <Heading size={1} fit textColor="secondary">
+            Et avec Lighthouse
+          </Heading>
+        </Slide>
+        <Slide bgColor="#66cdaa">
+          <Heading fit>Merci à vous</Heading>
+          <Heading fit textColor="primary">et à Guillaume Arm</Heading>
+          <Markdown>
+            {`
+- **Slides:** https://popul.github.io/slides-chrome-devtools/
+- **Demo:** https://github.com/atelier-des-logiciels/demo-chrome-devtools
+            `}
+          </Markdown>
         </Slide>
         <Slide>
           <Heading size={2} textColor="tertiary">
@@ -115,11 +363,8 @@ export default class Presentation extends React.Component {
 `}
           </Markdown>
         </Slide>
-        <Slide>
+        <Slide bgColor="#0099cc">
           <Heading fit>Questions ?</Heading>
-        </Slide>
-        <Slide>
-          <Heading fit>Merci à vous !</Heading>
         </Slide>
       </Deck>
     );

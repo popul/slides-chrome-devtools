@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "dist"),
     filename: "bundle.js",
-    publicPath: "/dist/"
+    publicPath: process.env.PUBLIC_PATH || '/'
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -57,7 +57,12 @@ module.exports = {
           name: '[name].[ext]',
         },
         include: path.join(__dirname, "assets")
-      }
+      },
+      {
+        test: /\.mp4$/,
+        loader: "file-loader",
+        include: path.join(__dirname, "assets")
+      },
     ]
   }
 };

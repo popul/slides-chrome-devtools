@@ -61,7 +61,12 @@ module.exports = {
         name: '[name].[ext]',
       },
       include: path.join(__dirname, "assets")
-    }
+    },
+    {
+      test: /\.mp4$/,
+      loader: "file-loader",
+      include: path.join(__dirname, "assets")
+    },
   ]
   }
 };
