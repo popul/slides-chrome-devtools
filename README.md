@@ -1,4 +1,4 @@
-# Spectacle Boilerplate
+# Slides Chrome Devtools
 
 ## Contents
 
