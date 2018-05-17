@@ -270,7 +270,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide bgColor="#d3ffce">
           <Heading size={1} caps fit textColor="secondary">
-            Comment optimiser le code
+            Comment optimiser
           </Heading>
           <Heading size={1} caps fit textColor="secondary">
             du code ?
